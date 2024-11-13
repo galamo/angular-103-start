@@ -1,0 +1,19 @@
+<div>
+    <h1> This is my new Angular app </h1>
+    <h1> This is my 1111111 Angular app </h1>
+    <h3 [ngStyle]="{color: selectedUser === 'Harel' ? 'red' :'black'}"> {{userName}} </h3>
+
+    <button (click)="toggleTitle()"> Show title </button>
+    <h2 *ngIf="isVisible"> This title visible? {{title}} </h2>
+
+    <button (click)="loadUsers()"> load users</button>
+    <h2> Selected User: {{selectedUser}} </h2>
+    <ol>
+
+        <li *ngFor="let currentUser of users; index as userIndex">
+            <app-user (sendToParent)="selectUserParent($event)" [data]="currentUser" [userIndex]="userIndex"></app-user>
+        </li>
+    </ol>
+
+
+</div>
