@@ -19,7 +19,7 @@ export class RatingComponent implements OnInit {
     ngOnInit(): void {
         console.log("In ngOninit, this.stars=", this.stars)
         this.isHalfStar = this.stars - parseInt(this.stars.toString()) > 0
-        for (let index = 0; index < this.stars; index++) {
+        for (let index = 0; index < parseInt(this.stars.toString()); index++) {
             this.dummyArray.push(1)
         }
     }
