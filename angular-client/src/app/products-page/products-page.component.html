@@ -1,0 +1,13 @@
+<div style="width: 80%; margin: auto; border:1px solid black; text-align: center;">
+    <h1 style="border-bottom: 1px solid blue;"> Products Page</h1>
+
+    <div style="display: flex; flex-wrap: wrap;">
+        <app-single-product *ngFor="let item of productsList" [productObj]="item"> </app-single-product>
+    </div>
+
+    <!-- <div *ngFor="let product of productsList">
+        {{product.title}}
+        {{product.price}}
+        {{product.category}}
+    </div> -->
+</div>
