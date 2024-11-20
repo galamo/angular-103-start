@@ -1,7 +1,6 @@
 <div style="width: 80%; margin: auto; border:1px solid black; text-align: center;">
     <h1 style="border-bottom: 1px solid blue;"> Products Page</h1>
-    <h2>You have {{this.shoppingCart.length}} Products in your Cart </h2>
-    <h2>Your Total Price is: {{this.totalCartPrice}}$ </h2>
+
     <div style="display: flex; flex-wrap: wrap;">
         <app-single-product *ngFor="let item of productsList" [productObj]="item"
             (addToCart)="addToCartProductsPage($event)">
