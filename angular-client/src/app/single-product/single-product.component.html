@@ -1,8 +1,15 @@
 <div style="border: 1px solid black; margin:20px; max-width: 300px;">
     <h1> {{this.productObj.title}} </h1>
     <h3> Price {{this.productObj.price}}$ </h3>
+    <h3 *ngIf="!this.sale.show"> <button (click)="getSalePrice()"> Sale </button> </h3>
+    <h4 *ngIf="this.sale.show"> This Product on Sale: {{this.sale.price}}$ </h4>
     <p style="max-height: 100px; overflow: auto;"> {{this.productObj.description}} </p>
     <h4> {{this.productObj.category}} </h4>
     <app-rating [stars]="this.productObj.rating.rate"></app-rating>
+    <button (click)="addToCartSingleProduct()"> Add To Cart </button>
+    <!-- <button mat-raised-button>Basic</button> -->
+    <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
     <img [src]="this.productObj.image" [height]="200" [width]="200" />
+
+
 </div>
