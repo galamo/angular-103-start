@@ -2,7 +2,10 @@
     <h1 style="border-bottom: 1px solid blue;"> Products Page</h1>
     <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
     <button mat-stroked-button (click)="getProductsData()">Get Products</button>
-    <div style="display: flex; flex-wrap: wrap;">
+    <div *ngIf="this.isLoading === true" style="display: flex; flex-wrap: wrap;">
+        <h1>Loading......</h1>
+    </div>
+    <div *ngIf="this.isLoading === false" style="display: flex; flex-wrap: wrap;">
         <app-single-product *ngFor="let item of productsList" [productObj]="item" [operation]="'add'"
             (sendProduct)="addToCartProductsPage($event)">
         </app-single-product>

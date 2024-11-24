@@ -6,7 +6,9 @@ const app = express()
 
 app.use(cors())
 app.get("/api/products", (req, res, next) => {
-    return res.json(data)
+    setTimeout(() => {
+        return res.json(data)
+    }, 2000);
 })
 
 app.listen(4500)
