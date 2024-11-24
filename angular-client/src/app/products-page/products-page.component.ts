@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { SingleProductComponent } from "../single-product/single-product.component";
 import { CartService } from "../services/cart.service"
 import { ProductsService } from '../services/products.service';
+import jsonToCsv from 'json-to-csv-export';
 export type Product = typeof data[0]
 
 export type ProductCart = Product & { quantity: number }
@@ -45,9 +46,17 @@ export class ProductsPageComponent implements OnInit {
         // complete this part if you want!?
     }
 
+    downloadCSV() {
+        jsonToCsv({
+            data: this.productsList, filename: "download_products_list"
+        })
+    }
+
     ngOnInit(): void {
         this.getProductsData()
     }
+
+
 
 
 }

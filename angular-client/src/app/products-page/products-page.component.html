@@ -2,6 +2,9 @@
     <h1 style="border-bottom: 1px solid blue;"> Products Page</h1>
     <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
     <button mat-stroked-button (click)="getProductsData()">Get Products</button>
+    <button mat-stroked-button (click)="this.downloadCSV()">
+        Download Data
+    </button>
     <div *ngIf="this.isLoading === true" style="display: flex; flex-wrap: wrap;">
         <h1>Loading......</h1>
     </div>
@@ -10,6 +13,9 @@
             (sendProduct)="addToCartProductsPage($event)">
         </app-single-product>
     </div>
+
+
+
 
     <!-- <div *ngFor="let product of productsList">
         {{product.title}}
