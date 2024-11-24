@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductCart } from '../products-page/products-page.component';
+import { Product, ProductCart } from '../products-page/products-page.component';
 
 
 @Injectable({
@@ -7,7 +7,7 @@ import { ProductCart } from '../products-page/products-page.component';
 })
 export class CartService {
 
-    public shoppingCart: Array<ProductCart> = [];
+    private shoppingCart: Array<ProductCart> = [];
     public totalPrice: number = 0
     constructor() { }
 
@@ -25,6 +25,13 @@ export class CartService {
 
         this.totalPrice = getTotalPrice(this.shoppingCart)
 
+    }
+
+    deleteProductFromCart(product: Product) {
+        const foundIndex = this.shoppingCart.findIndex(p => p.id === product.id)
+        if (foundIndex !== -1) {
+            this.shoppingCart.splice(foundIndex, 1)
+        }
     }
 
     getTotalPrice() {

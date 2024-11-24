@@ -2,7 +2,8 @@
     <h2>You have {{this.cartService.getShoppingCart().length}} Products in your Cart </h2>
     <h2>Your Total Price is: {{this.cartService.getTotalPrice()}}$ </h2>
     <div style="display: flex; flex-wrap: wrap;">
-        <app-single-product *ngFor="let item of this.cartService.getShoppingCart()" [productObj]="item">
+        <app-single-product *ngFor="let item of this.cartService.getShoppingCart()" [productObj]="item"
+            (sendProduct)="deleteProductFromCart($event)" [operation]="'remove'">
         </app-single-product>
     </div>
 
