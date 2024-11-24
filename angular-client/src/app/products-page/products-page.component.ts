@@ -19,7 +19,7 @@ export type ProductCart = Product & { quantity: number }
     templateUrl: './products-page.component.html',
     styleUrl: './products-page.component.css'
 })
-export class ProductsPageComponent {
+export class ProductsPageComponent implements OnInit {
 
     public isLoading: boolean = false;
     public productsList: Array<Product> = [];
@@ -45,7 +45,9 @@ export class ProductsPageComponent {
         // complete this part if you want!?
     }
 
-
+    ngOnInit(): void {
+        this.getProductsData()
+    }
 
 
 }

@@ -4,6 +4,7 @@ import { RatingComponent } from "../rating/rating.component";
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,15 +12,18 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     standalone: true,
     imports: [RatingComponent, CommonModule, MatButtonModule, MatSlideToggleModule],
     templateUrl: './single-product.component.html',
+    providers: [Router],
     styleUrl: './single-product.component.css'
 })
 export class SingleProductComponent {
     @Input() productObj: Product
     @Input() operation: string
     @Output() sendProduct = new EventEmitter<Product>();
+    public date: Date
     public sale: { price: number, show: boolean } = { price: 0, show: false }
     public buttonOperation: string = "";
-    constructor() {
+    constructor(public router: Router) {
+        this.date = new Date();
         this.operation = ""
         this.productObj = {
             id: 0,
@@ -49,14 +53,6 @@ export class SingleProductComponent {
         return parseInt(value)
     }
 
-    // ngOnInit(): void {
-    //     if (this.operation === 'add') {
-    //         this.buttonOperation = "__Add To Cart__"
-    //     } else if (this.operation === 'remove') {
-    //         this.buttonOperation = "__Remove From Cart__"
-    //     } else {
-    //         this.buttonOperation = "DONT KNOW"
-    //     }
-    // }
+   
 }
 

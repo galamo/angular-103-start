@@ -27,4 +27,4 @@ data:
 
 # Ex Angular onInit
 1. Get products on page load/start/init
-
+2. Create new route, checkout ( click on checkout )

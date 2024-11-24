@@ -1,0 +1,4 @@
+<div>
+    <h2> Available Date For delivery </h2>
+    <h3 *ngFor="let d of this.availableDates">{{d | date:'MM-dd-YYYY HH:mm' | uppercase}} </h3>
+</div>
