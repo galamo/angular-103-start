@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product, ProductCart } from '../products-page/products-page.component';
-
+import axios from "axios"
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +10,7 @@ export class CartService {
     private shoppingCart: Array<ProductCart> = [];
     public totalPrice: number = 0
     constructor() { }
+
 
     getShoppingCart() {
         return this.shoppingCart
