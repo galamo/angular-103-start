@@ -23,3 +23,8 @@ data:
 # Ex Angular Services
 1. Add Icon to the header with the number of products in the cart
 2. add option to clear all products from cart!!!!
+
+
+# Ex Angular onInit
+1. Get products on page load/start/init
+
