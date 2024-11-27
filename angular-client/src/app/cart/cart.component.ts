@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { SingleProductComponent } from '../single-product/single-product.component';
 import { Product, ProductCart } from '../products-page/products-page.component';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-cart',
     standalone: true,
     imports: [CommonModule, SingleProductComponent, MatButtonModule],
     templateUrl: './cart.component.html',
-    providers: [Router],
+    providers: [Router, Location],
     styleUrl: './cart.component.css'
 })
 export class CartComponent {
 
-    constructor(public cartService: CartService, private router: Router) {
+    constructor(public cartService: CartService, private router: Router, public location: Location) {
 
     }
 
@@ -25,6 +25,10 @@ export class CartComponent {
     }
 
     navigateToCheckout() {
-        this.router.navigate(['checkout'])
+        this.router.navigate(['/checkout'])
+
+    }
+    goBack() {
+        this.location.back()
     }
 }

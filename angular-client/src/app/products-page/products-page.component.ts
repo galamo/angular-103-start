@@ -28,8 +28,6 @@ export class ProductsPageComponent implements OnInit {
     }
     addToCartProductsPage(product: Product) {
         this.cartService.addNewItemToShoppingCart({ ...product, quantity: 1 })
-
-
     }
 
     async getProductsData() {

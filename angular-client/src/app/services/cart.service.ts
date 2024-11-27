@@ -16,6 +16,10 @@ export class CartService {
         return this.shoppingCart
     }
 
+    clearCart() {
+        this.shoppingCart = []
+    }
+
     addNewItemToShoppingCart(product: ProductCart) {
         const foundProduct = this.shoppingCart.find(p => p.id === product.id)
         if (foundProduct) {
@@ -34,6 +38,7 @@ export class CartService {
             this.shoppingCart.splice(foundIndex, 1)
         }
     }
+
 
     getTotalPrice() {
         return this.totalPrice
